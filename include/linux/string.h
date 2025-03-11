@@ -27,6 +27,10 @@ extern char * strncpy(char *,const char *, __kernel_size_t);
 #ifndef __HAVE_ARCH_STRLCPY
 size_t strlcpy(char *, const char *, size_t);
 #endif
+extern char *stpcpy(char *dest, const char *src) {
+    while ((*dest++ = *src++) != '\0');
+    return dest - 1;
+}
 
 /* Wraps calls to strscpy()/memset(), no arch specific code required */
 ssize_t strscpy_pad(char *dest, const char *src, size_t count);
